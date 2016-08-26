@@ -1,0 +1,111 @@
+
+#myTable{
+    margin-left: 15px;
+    margin-top: 20px;
+    /*background-color: #b9c1c5;*/
+  }
+
+  table{
+    margin-top: 15px;
+  }
+
+table,th,td{
+ height: 40px;
+ border: 1px solid #3F51B5;
+ width: 350px;
+ text-align: center;
+ background-color: aliceblue;
+}
+
+#form{
+background: #c3c3c3;
+/*margin-left: 600px;
+margin-top: -285px;*/
+border: 1px solid black;
+width: 380px;
+}
+#form input{
+ margin-left: 50px;
+ margin-bottom: 15px;
+ height:30px;
+ width:250px;
+}
+#add_row{
+  margin-left: 105px;
+  margin-bottom: 15px;
+ color: whitesmoke;
+ background-color:#165857 ;
+ border: none;
+}
+#add_row:hover{
+ background-color:#146514;
+}
+
+#reset{
+  margin-left: 5px;
+  margin-bottom: 15px;
+ color: whitesmoke;
+ background-color:#165857 ;
+ border: none;
+}
+
+#reset:hover{
+  background-color:#146514;
+}
+
+#add_year{
+ margin-top: 15px;
+}
+#paging{
+ margin-top: 50px;
+ margin-left: 105px;
+}
+#nav{
+ width: 35px;
+ margin-right: 1px;
+ margin-bottom: 10px;
+ padding-right: 10px;
+ height: 25px;
+ background-color: #607D8B;
+ border: none;
+ color: ghostwhite;
+}
+
+#nav:hover{
+  color: black;
+  background-color: #aecddc;
+}
+
+#remove{
+ background-color:#4d439a;
+ color: whitesmoke;
+ border: none;
+}
+#remove:hover{
+ background-color:#ad515a;
+}
+
+#filter{
+  background-color:#607D8B;
+  color: whitesmoke;
+  border: none;
+}
+
+#filter:hover{
+  background-color:#03A9F4;
+}
+
+.sortorder:after {
+  content: '\25b2';   // BLACK UP-POINTING TRIANGLE
+}
+.sortorder.reverse:after {
+  content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
+}
+
+button.disabled{
+  cursor: not-allowed;
+}
+
+#filterInput{
+  width: 240px;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="Apptable">
+<head>
+  <title>Dynamic Table Using Angular</title>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script> -->
+  <script src="Angular/angular.min.js" charset="utf-8"></script>
+  <script src="CustomDirectives/crimeTable.directive.js" charset="utf-8"></script>
+  <script src="Filters/Numberformat.Filter.js" charset="utf-8"></script>
+  <script src="Integer-Directive/Integer.directive.js" charset="utf-8"></script>
+  <script src="CustomDirectives/SortingRecords.directive.js" charset="utf-8"></script>
+  <script src="CustomDirectives/Pagination.directive.js" charset="utf-8"></script>
+  <script src="CustomDirectives/ValidatedForm.directive.js" charset="utf-8"></script>
+  <script src="Js/table.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="CSS/table.css">
+</head>
+
+
+<body ng-controller="mainCtrl">
+
+<sort-records> </sort-records>
+
+<crime-table id="myTable"></crime-table>
+
+<pagination></pagination>
+
+<valid-form></valid-form>
+
+</body>
+</html>

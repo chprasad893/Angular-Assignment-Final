@@ -1,0 +1,10 @@
+
+<input type="number" min=4 max=8 ng-model="pageSize" id="pageSize">
+<button type="button" ng-click="paging(1)" id="filter">Apply</button>
+<select ng-model="propertyValue">
+  <option value="year">Year</option>
+  <option value="under">Under $500</option>
+  <option value="over">Over $500</option>
+</select>
+<input type="text" placeholder="Enter Value To Apply Greater Than Filter" ng-model="apply_constraint" id="filterInput">
+<button type="button" ng-click="Above()" id="filter" >Apply Filter</button>
