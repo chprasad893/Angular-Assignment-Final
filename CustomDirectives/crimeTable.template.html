@@ -1,12 +1,14 @@
 <table>
+  <tr>
   <th ng-click="sortBy('year')">Year<span class="sortorder" ng-show="propertyName === 'year'" ng-class="{reverse: reverse}"></span></th>
   <th ng-click="sortBy('under')">Under<span class="sortorder" ng-show="propertyName === 'under'" ng-class="{reverse: reverse}"></span></th>
   <th ng-click="sortBy('over')">Over<span class="sortorder" ng-show="propertyName === 'over'" ng-class="{reverse: reverse}"></span></th>
   <th>Delete Record</th>
+  </tr>
   <tr ng-repeat="crime in restcrimes | orderBy:propertyName:reverse">
     <td>{{crime.year}}</td>
     <td>{{crime.under}}</td>
     <td>{{crime.over}}</td>
-    <td><button type="button" ng-click="DeleteData(crime.year)" id="remove">Delete</button></td>
+    <td><md-button type="button" ng-click="DeleteData(crime.year)" id="remove">Delete</md-button></td>
    </tr>
 </table>

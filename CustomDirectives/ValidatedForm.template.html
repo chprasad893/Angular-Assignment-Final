@@ -1,21 +1,28 @@
 <form name="AddRecord" id="form" novalidate>
+  <md-input-container>
   <input type="number" min="1947" max="2100" placeholder="Year" ng-model="add_year" id="add_year" name="year" integer required ><br>
 <span style="color:red" ng-show="AddRecord.year.$dirty && AddRecord.year.$invalid">
   <span ng-show="AddRecord.year.$error.integer">The value is not a valid integer!</span>
 <span ng-show="AddRecord.year.$error.required">Year is required.</span>
 <span ng-show="AddRecord.year.$error.min ||  AddRecord.year.$error.max">Enter Between (1947-2100)</span>
 </span><br>
+</md-input-container>
+<md-input-container>
 <input type="number" min="0" max="100000" placeholder="Under $500" ng-model="add_under" name="under" required><br>
 <span style="color:red" ng-show="AddRecord.under.$dirty && AddRecord.under.$invalid">
 <span ng-show="AddRecord.under.$error.required">Under is required.</span>
 <span ng-show="AddRecord.under.$error.min ||  AddRecord.under.$error.max">Enter Between (0-1Lakh)</span>
 </span><br>
+</md-input-container>
+<md-input-container>
 <input type="number" min="0" max="100000"  placeholder="Over $500" ng-model="add_over" name="over" required><br>
 <span style="color:red" ng-show="AddRecord.over.$dirty && AddRecord.over.$invalid">
 <span ng-show="AddRecord.over.$error.required">Over is required.</span>
 <span ng-show="AddRecord.over.$error.min ||  AddRecord.over.$error.max">Enter Between (0-1Lakh)</span>
 </span><br>
-<button type="button" ng-click="AddData()" id="add_row" ng-disabled="AddRecord.year.$dirty && AddRecord.year.$invalid || AddRecord.year.$pristine||
-AddRecord.under.$dirty && AddRecord.under.$invalid ||AddRecord.under.$pristine|| AddRecord.over.$dirty && AddRecord.over.$invalid || AddRecord.over.$pristine">Add Record</button>
-<button type="button" ng-click="reset()" id="reset">Reset</button>
+<span style="color:red" ng-model="AddRecord.exist" ng-show="exist">Year Already Exist Enter Some Other Year</span>
+</md-input-container>
+<md-button type="button" class="md-raised" ng-click="AddData()" id="add_row" ng-disabled="AddRecord.year.$dirty && AddRecord.year.$invalid || AddRecord.year.$pristine||
+AddRecord.under.$dirty && AddRecord.under.$invalid ||AddRecord.under.$pristine|| AddRecord.over.$dirty && AddRecord.over.$invalid || AddRecord.over.$pristine">Add Record</md-button>
+<md-button type="button" class="md-raised" ng-click="reset()" id="reset">Reset</md-button>
 </form>

@@ -1,4 +1,4 @@
-var Apptable=angular.module('Apptable',['crimeTableModule','FilterModule','IntegerModule','SortingRecordsModule','paginationModule','ValidatedFormModule']);
+var Apptable=angular.module('Apptable',['ngMaterial','crimeTableModule','FilterModule','IntegerModule','SortingRecordsModule','paginationModule','ValidatedFormModule']);
 
 Apptable.controller('mainCtrl',function mainCtrl($scope,$http,orderByFilter){
   $scope.resetValue='';
@@ -16,7 +16,6 @@ Apptable.controller('mainCtrl',function mainCtrl($scope,$http,orderByFilter){
     $scope.crimes=response.data;
     $scope.crimes=orderByFilter($scope.crimes, '+year');
     $scope.crimesCopy=$scope.crimes;
-    $scope.Updatedcrimes=$scope.crimes;
     total_pages = Math.ceil($scope.crimes.length / $scope.pageSize);
 // console.log(total_pages);
 // console.log($scope.pageSize);
@@ -46,6 +45,7 @@ for(var i=1;i<=total_pages;i++){
 $scope.pages.push(i);
 }
     $scope.crimes=orderByFilter($scope.crimes, '+year');
+    $scope.crimesCopy=orderByFilter($scope.crimesCopy, '+year');
     $scope.restcrimes=$scope.crimes.slice(start,end);
     // console.log($scope.crimes.length);
     // console.log($scope.restcrimes.length);
@@ -65,18 +65,26 @@ $scope.pages.push(i);
 // ======= Adding New Record into Table Code ===========
 
 $scope.AddData=function(){
-
-$scope.obj={};
-$scope.obj.year=$scope.add_year.toString();
-$scope.obj.under=$scope.add_under.toString();
-$scope.obj.over=$scope.add_over.toString();
-$scope.crimes.push($scope.obj);
-$scope.crimesCopy=$scope.crimes;
-// console.log("Add Data Function Called");
-// console.log($scope.obj);
-// console.log($scope.crimes);
-// console.log(typeof $scope.obj.year);
-$scope.paging(pageIndex);
+  $scope.exist=false;
+  for(var p=0;p<$scope.crimesCopy.length;p++){
+    if($scope.add_year==$scope.crimesCopy[p].year){
+        $scope.exist=true;
+        break;
+    }
+  }
+  if($scope.exist==false){
+    $scope.obj={};
+    $scope.obj.year=$scope.add_year.toString();
+    $scope.obj.under=$scope.add_under.toString();
+    $scope.obj.over=$scope.add_over.toString();
+    $scope.crimes.push($scope.obj);
+    $scope.crimesCopy.push($scope.obj);
+    // console.log("Add Data Function Called");
+    // console.log($scope.obj);
+    // console.log($scope.crimes);
+    // console.log(typeof $scope.obj.year);
+    $scope.paging(pageIndex);
+  }
 }
 
 
@@ -128,7 +136,21 @@ $scope.DeleteData=function (value){
         $scope.crimes[j].over=$scope.crimes[j+1].over;
       }
       $scope.crimes.pop();
-      $scope.crimesCopy=$scope.crimes;
+      $scope.crimesCopy.pop();
+      // $scope.crimesCopy=$scope.crimes;
+      break;
+    }
+  }
+  for(var k=0;k<$scope.crimesCopy.length;k++){
+    if($scope.crimesCopy[k].year==value){
+      for(var j=k;j<(($scope.crimesCopy.length)-1);j++){
+        $scope.crimesCopy[j].year=$scope.crimesCopy[j+1].year;
+        $scope.crimesCopy[j].under=$scope.crimesCopy[j+1].under;
+        $scope.crimesCopy[j].over=$scope.crimesCopy[j+1].over;
+      }
+      $scope.crimesCopy.pop();
+      // $scope.crimesCopy.pop();
+      // $scope.crimesCopy=$scope.crimes;
       break;
     }
   }
@@ -155,10 +177,9 @@ $scope.DeleteData=function (value){
 $scope.propertyValue='year';
 
 $scope.Above=function(){
+
   ind=undefined;
   $scope.crimes=$scope.crimesCopy;
-
-  // console.log($scope.propertyValue);
 
 if($scope.apply_constraint!=undefined && $scope.apply_constraint!='' && $scope.propertyValue!=undefined){
 
@@ -207,8 +228,12 @@ $scope.filteredCrimes=[];
 
 else {
   // console.log('Empty inside else');
-  $scope.crimes=$scope.Updatedcrimes;
+  $scope.crimes=$scope.crimesCopy;
   $scope.paging(pageIndex);
+  // console.log($scope.crimesCopy);
+  // console.log($scope.crimes);
+
+
 }
 };
 

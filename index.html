@@ -2,21 +2,30 @@
 <html ng-app="Apptable">
 <head>
   <title>Dynamic Table Using Angular</title>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script> -->
-  <script src="Angular/angular.min.js" charset="utf-8"></script>
-  <script src="CustomDirectives/crimeTable.directive.js" charset="utf-8"></script>
-  <script src="Filters/Numberformat.Filter.js" charset="utf-8"></script>
-  <script src="Integer-Directive/Integer.directive.js" charset="utf-8"></script>
-  <script src="CustomDirectives/SortingRecords.directive.js" charset="utf-8"></script>
-  <script src="CustomDirectives/Pagination.directive.js" charset="utf-8"></script>
-  <script src="CustomDirectives/ValidatedForm.directive.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <!-- <script src="Angular/angular.min.js" charset="utf-8"></script> -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="CustomDirectives/crimeTable.directive.js" charset="utf-8"></script>
+<script src="Filters/Numberformat.Filter.js" charset="utf-8"></script>
+<script src="Integer-Directive/Integer.directive.js" charset="utf-8"></script>
+<script src="CustomDirectives/SortingRecords.directive.js" charset="utf-8"></script>
+<script src="CustomDirectives/Pagination.directive.js" charset="utf-8"></script>
+<script src="CustomDirectives/ValidatedForm.directive.js" charset="utf-8"></script>
   <script src="Js/table.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.css">
   <link rel="stylesheet" href="CSS/table.css">
 </head>
 
 
 <body ng-controller="mainCtrl">
+  <center><h1>CHICAGO CRIME DATA</h1>
 
+<div id="totalContainer">
 <sort-records> </sort-records>
 
 <crime-table id="myTable"></crime-table>
@@ -25,5 +34,7 @@
 
 <valid-form></valid-form>
 
+</div>
 </body>
+
 </html>

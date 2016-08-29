@@ -1,5 +1,5 @@
 <div class="pagination" >
-    <button type="button" ng-click="prev()" id="nav"><<</button>
-    <button type="button" ng-repeat="pageNo in pages" ng-click="paging(pageNo)" id="nav">{{pageNo | NumSupScrpt}} </button>
-    <button type="button" ng-click="next()" id="nav">>></button>
+    <md-button class="md-raised" type="button" ng-click="prev()" id="nav"><<</md-button>
+    <md-button class="md-raised" type="button" ng-repeat="pageNo in pages" ng-click="paging(pageNo)" id="nav">{{pageNo | NumSupScrpt}} </md-button>
+    <md-button class="md-raised" type="button" ng-click="next()" id="nav">>></md-button>
 </div>

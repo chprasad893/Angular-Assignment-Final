@@ -1,4 +1,7 @@
-
+#totalContainer{
+  border: 1px solid black;
+  margin: -10px 250px;
+}
 #myTable{
     margin-left: 15px;
     margin-top: 20px;
@@ -7,6 +10,7 @@
 
   table{
     margin-top: 15px;
+
   }
 
 table,th,td{
@@ -17,11 +21,14 @@ table,th,td{
  background-color: aliceblue;
 }
 
+.pagination{
+  margin-left: 5px;
+}
 #form{
-background: #c3c3c3;
-/*margin-left: 600px;
-margin-top: -285px;*/
-border: 1px solid black;
+background: #f4fcfd;
+border: 0.5px solid #2196f3;
+margin-top: 15px;
+margin-bottom: 25px;
 width: 380px;
 }
 #form input{
@@ -107,5 +114,9 @@ button.disabled{
 }
 
 #filterInput{
-  width: 240px;
+  width: 300px;
+}
+
+#pageSize{
+  width: 70px;
 }
